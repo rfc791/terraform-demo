@@ -10,7 +10,7 @@ resource "azurerm_network_interface" "example" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.example.id
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }
@@ -24,7 +24,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   admin_password      = var.admin_password
 
   disable_password_authentication = true
-  
+
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
