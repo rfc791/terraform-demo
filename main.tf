@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   admin_username      = "adminuser"
   admin_password      = var.admin_password
 
-  disable_password_authentication = true
+  disable_password_authentication = false
 
   network_interface_ids = [
     azurerm_network_interface.example.id,
